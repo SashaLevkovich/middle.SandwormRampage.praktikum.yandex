@@ -8,6 +8,7 @@ import {
 } from 'react'
 
 import { CloseOutlined, RightOutlined } from '@ant-design/icons'
+
 import { Button, Flex, Form, Input } from 'antd'
 
 import { Message } from 'components/Message'

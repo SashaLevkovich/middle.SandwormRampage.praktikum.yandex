@@ -15,65 +15,66 @@ import { Profile } from 'pages/profile'
 import { SignIn } from 'pages/signIn'
 import { SignUp } from 'pages/signUp'
 
-export const appRouter = () =>
-  createBrowserRouter([
-    {
-      path: '/*',
-      element: <NotFound />,
-    },
-    {
-      path: '/serverError',
-      element: <UnexpectedCondition />,
-    },
-    {
-      path: '/login',
-      element: <SignIn />,
-    },
-    {
-      path: '/signUp',
-      element: <SignUp />,
-    },
-    {
-      element: <Layout bottomSlot={<Navbar />} />,
-      path: '/',
-      children: [
-        { index: true, element: <GameStart /> },
-        {
-          path: '/landing',
-          element: <Landing />,
-        },
-        {
-          path: '/profile',
-          element: (
-            <PrivateRoute>
-              <Profile />
-            </PrivateRoute>
-          ),
-        },
-        {
-          path: '/game',
-          element: (
-            <PrivateRoute>
-              <Game />
-            </PrivateRoute>
-          ),
-        },
-        {
-          path: '/leaderboard',
-          element: (
-            <PrivateRoute>
-              <Leaderboard />
-            </PrivateRoute>
-          ),
-        },
-        {
-          path: '/forum',
-          element: (
-            <PrivateRoute>
-              <Forum />
-            </PrivateRoute>
-          ),
-        },
-      ],
-    },
-  ])
+export const routes = [
+  {
+    path: '/*',
+    element: <NotFound />,
+  },
+  {
+    path: '/serverError',
+    element: <UnexpectedCondition />,
+  },
+  {
+    path: '/login',
+    element: <SignIn />,
+  },
+  {
+    path: '/signUp',
+    element: <SignUp />,
+  },
+  {
+    element: <Layout bottomSlot={<Navbar />} />,
+    path: '/',
+    children: [
+      { index: true, element: <GameStart /> },
+      {
+        path: '/landing',
+        element: <Landing />,
+      },
+      {
+        path: '/profile',
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/game',
+        element: (
+          <PrivateRoute>
+            <Game />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/leaderboard',
+        element: (
+          <PrivateRoute>
+            <Leaderboard />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/forum',
+        element: (
+          <PrivateRoute>
+            <Forum />
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
+]
+
+export const appRouter = () => createBrowserRouter(routes)

@@ -30,13 +30,13 @@ const theme: ThemeConfig = {
 
 function AppProviders() {
   return (
-    <ErrorBoundary>
-      <Provider store={store}>
-        <ConfigProvider theme={theme}>
-          <RouterProvider router={appRouter()} />
-        </ConfigProvider>
-      </Provider>
-    </ErrorBoundary>
+    // <ErrorBoundary>
+    <Provider store={store}>
+      <ConfigProvider theme={theme}>
+        <RouterProvider router={appRouter()} />
+      </ConfigProvider>
+    </Provider>
+    // </ErrorBoundary>
   )
 }
 
